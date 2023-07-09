@@ -5,9 +5,9 @@
 ////////////////////////////////////////////////////
 
 // Init:                                 1
-// Endpoints:                           34
+// Endpoints:                           46
 // Async Callback (empty):               1
-// Total number of exported functions:  36
+// Total number of exported functions:  48
 
 #![no_std]
 #![feature(lang_items)]
@@ -26,6 +26,8 @@ multiversx_sc_wasm_adapter::endpoints! {
         storageEgldOrEsdtTokenIdentifier
         insert_managed_vec_managed_buffer
         storageManagedVecManagedBuffer
+        insert_managed_vec_i64
+        storageManagedVecI64
         insert_i8
         insert_i16
         insert_i32
@@ -48,10 +50,20 @@ multiversx_sc_wasm_adapter::endpoints! {
         storageBigUint
         insert_my_struct
         storageMyStruct
+        insert_my_struct2
+        storageMyStruct2
+        insert_managed_vec_my_struct2
+        storageManagedVecMyStruct2
         insert_set_mapper_address
         insert_map_mapper_token_identifier_address
         StorageSetMapperAddress
         StorageMapMapperTokenIdentifierAddress
+        insert_tuple_i64_bool
+        storageTupleI64Bool
+        insert_tuple_i64_bool_managed_buffer
+        storageTupleI64BoolManagedBuffer
+        insert_tuple_managed_vec_i64_bool
+        storageTupleManagedVecI64Bool
     )
 }
 

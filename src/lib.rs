@@ -7,13 +7,15 @@ mod numeric_signed_value;
 mod numeric_unsigned_value;
 mod struct_value;
 mod list_value;
+mod tuple_value;
 
 #[multiversx_sc::contract]
 pub trait TypeValue:
     numeric_signed_value::NumericSignedValue
     + numeric_unsigned_value::NumericUnsignedValue
     + struct_value::StructValue
-    + list_value::ListValue {
+    + list_value::ListValue
+    + tuple_value::TupleValue {
 
     #[init]
     fn init(&self) {
@@ -55,5 +57,13 @@ pub trait TypeValue:
     #[view(storageManagedVecManagedBuffer)]
     #[storage_mapper("storageManagedVecManagedBuffer")]
     fn storage_managed_vec_managed_buffer(&self) -> SingleValueMapper<ManagedVec<ManagedBuffer>>;
-    
+
+    #[endpoint]
+    fn insert_managed_vec_i64(&self, value: ManagedVec<i64>){
+        self.storage_managed_vec_i64().set(value);
+    }
+
+    #[view(storageManagedVecI64)]
+    #[storage_mapper("storageManagedVecI64")]
+    fn storage_managed_vec_i64(&self) -> SingleValueMapper<ManagedVec<i64>>;
 }
