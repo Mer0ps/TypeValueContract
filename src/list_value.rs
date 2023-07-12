@@ -4,21 +4,25 @@ multiversx_sc::derive_imports!();
 #[multiversx_sc::module]
 pub trait ListValue{
 
-    #[endpoint]
-    fn insert_set_mapper_address(&self, value: ManagedAddress){
-        self.storage_set_mapper_address().insert(value);
+    #[only_owner]
+    #[endpoint(insertManagedVecManagedBuffer)]
+    fn insert_managed_vec_managed_buffer(&self, value: ManagedVec<ManagedBuffer>){
+        self.storage_managed_vec_managed_buffer().set(value);
     }
 
-    #[endpoint]
-    fn insert_map_mapper_token_identifier_address(&self, identifier: TokenIdentifier, value: ManagedAddress){
-        self.storage_map_mapper_token_identifier_address().insert(identifier, value);
+    #[only_owner]
+    #[endpoint(insertManagedVecI64)]
+    fn insert_managed_vec_i64(&self, value: ManagedVec<i64>){
+        self.storage_managed_vec_i64().set(value);
     }
 
-    #[view(StorageSetMapperAddress)]
-    #[storage_mapper("StorageSetMapperAddress")]
-    fn storage_set_mapper_address(&self) -> SetMapper<ManagedAddress>;
+    //Storage
 
-    #[view(StorageMapMapperTokenIdentifierAddress)]
-    #[storage_mapper("StorageMapMapperTokenIdentifierAddress")]
-    fn storage_map_mapper_token_identifier_address(&self) -> MapMapper<TokenIdentifier, ManagedAddress>;
+    #[view(getManagedVecManagedBuffer)]
+    #[storage_mapper("storageManagedVecManagedBuffer")]
+    fn storage_managed_vec_managed_buffer(&self) -> SingleValueMapper<ManagedVec<ManagedBuffer>>;
+
+    #[view(getManagedVecI64)]
+    #[storage_mapper("storageManagedVecI64")]
+    fn storage_managed_vec_i64(&self) -> SingleValueMapper<ManagedVec<i64>>;
 }

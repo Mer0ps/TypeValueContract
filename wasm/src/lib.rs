@@ -5,9 +5,9 @@
 ////////////////////////////////////////////////////
 
 // Init:                                 1
-// Endpoints:                           46
+// Endpoints:                           58
 // Async Callback (empty):               1
-// Total number of exported functions:  48
+// Total number of exported functions:  60
 
 #![no_std]
 #![feature(lang_items)]
@@ -18,52 +18,64 @@ multiversx_sc_wasm_adapter::panic_handler!();
 multiversx_sc_wasm_adapter::endpoints! {
     typevalue
     (
-        insert_address
-        storageAddress
-        insert_token_identifier
-        storageTokenIdentifier
-        insert_egld_or_esdt_token_identifier
-        storageEgldOrEsdtTokenIdentifier
-        insert_managed_vec_managed_buffer
-        storageManagedVecManagedBuffer
-        insert_managed_vec_i64
-        storageManagedVecI64
-        insert_i8
-        insert_i16
-        insert_i32
-        insert_i64
-        insert_big_int
-        storageI8
-        storageI16
-        storageI32
-        storageI64
-        storageBigInt
-        insert_u8
-        insert_u16
-        insert_u32
-        insert_u64
-        insert_big_uint
-        storageU8
-        storageU16
-        storageU32
-        storageU64
-        storageBigUint
-        insert_my_struct
-        storageMyStruct
-        insert_my_struct2
-        storageMyStruct2
-        insert_managed_vec_my_struct2
-        storageManagedVecMyStruct2
-        insert_set_mapper_address
-        insert_map_mapper_token_identifier_address
-        StorageSetMapperAddress
-        StorageMapMapperTokenIdentifierAddress
-        insert_tuple_i64_bool
-        storageTupleI64Bool
-        insert_tuple_i64_bool_managed_buffer
-        storageTupleI64BoolManagedBuffer
-        insert_tuple_managed_vec_i64_bool
-        storageTupleManagedVecI64Bool
+        insertI8
+        insertI16
+        insertI32
+        insertI64
+        insertBigInt
+        insertU8
+        insertU16
+        insertU32
+        insertU64
+        insertBigUInt
+        insertManagedAddress
+        insertTokenIdentifier
+        insertEgldOrEsdtTokenIdentifier
+        getI8
+        getI16
+        getI32
+        getI64
+        getBigInt
+        getU8
+        getU16
+        getU32
+        getU64
+        getBigUInt
+        getManagedAddress
+        getTokenIdentifier
+        getEgldOrEsdtTokenIdentifier
+        insertMyStruct
+        insertMyStruct2
+        insertManagedVecMyStruct2
+        getMyStruct
+        getMyStruct2
+        getManagedVecMyStruct2
+        insertManagedVecManagedBuffer
+        insertManagedVecI64
+        getManagedVecManagedBuffer
+        getManagedVecI64
+        insertVariadicManagedAddress
+        insertVariadicTokenIdentifierManagedAddress
+        getVariadicManagedAddress
+        getVariadicTokenIdentifierManagedAddress
+        insertTupleI64ValueBooleanValue
+        insertTupleI64ValueBooleanValueManagedBuffer
+        insertTupleManagedVecI64BooleanValue
+        getTupleI64ValueBooleanValue
+        getTupleI64ValueBooleanValueManagedBuffer
+        getTupleManagedVecI64BooleanValue
+        insertOptionalValueU8
+        insertOptionalValueEmptyU8
+        insertOptionU8
+        insertOptionEmptyU8
+        getOptionalValueEmptyU64
+        getOptionalValueU64
+        getOptionValueEmptyU64
+        getOptionValueU64
+        getOptionalU8
+        getOptionalEmptyU8
+        getOptionU8
+        getOptionEmptyU8
     )
 }
 
